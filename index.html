@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brésil — Itinéraire + Guide Rio + Pot commun</title>
+<meta name="description" content="Itinéraire 12 jours au Brésil + Guide Rio + Pot commun : transports, musées, plages, sorties, prix des activités non incluses, astuces sécurité.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128'%3E%3Ctext y='1em' font-size='96'%3E%F0%9F%8C%8D%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#faf7f2;--card:#ffffff;--ink:#1f1f1f;--muted:#666;
+    --line:#e8e1d8;--chip:#efe9df;--accent:#0f766e;--accent-ink:#063a36;
+    --warn:#a31515;--ok:#0a7f35;--shadow:0 1px 0 #00000010;
+  }
+  /* Base (mode clair uniquement) */
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+  .wrap{max-width:1120px;margin:0 auto;padding:20px 18px 80px}
+  h1{margin:0 0 8px;font-size:clamp(24px,3.8vw,40px)}
+  h2{margin:26px 0 12px;font-size:clamp(20px,2.6vw,28px)}
+  h3{margin:18px 0 10px;font-size:clamp(18px,2.2vw,22px)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .sub{color:var(--muted)}
+  /* Top nav */
+  .topnav{position:sticky;top:0;background:rgba(250,247,242,.86);
+    backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line);z-index:5}
+  .navin{max-width:1120px;margin:0 auto;display:flex;gap:12px;align-items:center;padding:10px 12px}
+  .navin a{padding:8px 10px;border-radius:10px}
+  .navin a:hover{background:var(--card);border:1px solid var(--line)}
+  .right{margin-left:auto;display:flex;gap:10px;align-items:center}
+  .btn{border:1px solid var(--line);background:var(--card);padding:8px 10px;border-radius:10px;cursor:pointer}
+  .btn:hover{box-shadow:var(--shadow)}
+  /* Chips & cards */
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--chip);border-radius:999px;padding:3px 10px;font-size:12px}
+  .kpi{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+  .kpi strong{color:var(--ink)}
+  .grid{display:grid;gap:14px}
+  .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+  /* Programme (jours) */
+  .day{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0;box-shadow:var(--shadow)}
+  .day header{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin:0 0 8px}
+  .date{color:var(--muted);font-weight:600}
+  .tags{margin-left:auto;display:flex;gap:6px}
+  .tags .chip{background:#eef6f5;color:#0b5e58}
+  .cols{display:grid;grid-template-columns:2.2fr 1.1fr;gap:16px}
+  .incl{background:#fbf9f6;border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px}
+  .incl h4{margin:0 0 8px;font-size:14px}
+  ul{margin:8px 0 0 18px}
+  .noninc{border-left:3px solid var(--accent);padding-left:10px;margin-top:10px}
+  .price-line{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .price-line:last-child{border-bottom:0}
+  .price{white-space:nowrap;font-weight:600}
+  .legend{font-size:13px;color:var(--muted)}
+  /* Guide Rio */
+  .guide h3{display:flex;gap:8px;align-items:center}
+  details{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:12px;margin:12px 0}
+  details[open]{box-shadow:var(--shadow)}
+  summary{cursor:pointer;font-weight:600}
+  .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .row{display:grid;grid-template-columns:1.3fr .8fr 1fr;gap:8px;border-bottom:1px dashed var(--line);padding:6px 0}
+  .row:last-child{border-bottom:0}
+  .head{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .warn{color:var(--warn)}
+  /* Search bar */
+  .searchbar{display:flex;gap:10px;align-items:center}
+  .searchbar input{flex:1;border:1px solid var(--line);background:var(--card);padding:10px 12px;border-radius:10px;color:var(--ink)}
+  .count{font-size:13px;color:var(--muted)}
+  /* Budget widget (petit) */
+  .budget{display:grid;gap:8px}
+  .brow{display:grid;grid-template-columns:1fr .3fr .2fr;gap:10px;align-items:center}
+  .brow input[type="number"]{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+  .sum{display:flex;justify-content:space-between;align-items:center;padding:10px;border-top:1px solid var(--line);margin-top:6px;font-weight:700}
+  .ok{color:var(--ok)}
+  /* Floating back-to-top */
+  .top{position:fixed;right:14px;bottom:14px;background:var(--accent);color:#07110f;border:0;border-radius:999px;width:44px;height:44px;cursor:pointer;box-shadow:var(--shadow)}
+  /* POT COMMUN */
+  .pot-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
+  .pot-controls input, .pot-controls select{padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+  .ptable{width:100%;border-collapse:collapse}
+  .ptable th,.ptable td{border-bottom:1px dashed var(--line);padding:8px;text-align:left;vertical-align:middle}
+  .ptable th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  .ptable input[type="number"], .ptable select, .ptable input[type="text"]{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+  .ptable input[type="checkbox"]{width:18px;height:18px}
+  .pinfo{font-size:13px;color:var(--muted)}
+  .ptot{display:flex;flex-wrap:wrap;gap:18px;align-items:center;border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+  .ptot strong{font-size:18px}
+  /* Participants */
+  .paxwrap{display:grid;gap:10px;margin-top:10px}
+  .paxrow{display:flex;gap:8px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:6px;background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+  .pill button{border:0;background:transparent;cursor:pointer;font-weight:700}
+  .pill button:hover{opacity:.7}
+  @media (max-width:980px){.cols-2{grid-template-columns:1fr}.cols{grid-template-columns:1fr}.row{grid-template-columns:1fr .6fr .9fr}.brow{grid-template-columns:1fr .4fr .2fr}}
+  @media print{.topnav,.top{display:none}.day,details,.card{break-inside:avoid}a{text-decoration:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="topnav" role="navigation" aria-label="Sommaire">
+  <div class="navin">
+    <a href="#intro">Intro</a>
+    <a href="#infos">Infos pratiques</a>
+    <a href="#programme">Programme</a>
+    <a href="#guide-rio">Guide Rio</a>
+    <a href="#pot-commun"><strong>POT commun</strong></a>
+    <div class="right">
+      <button id="expandAll" class="btn" type="button">Ouvrir tout</button>
+      <button id="collapseAll" class="btn" type="button">Fermer tout</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="main">
+  <!-- INTRO -->
+  <section id="intro">
+    <h1>Brésil — Itinéraire enrichi & Guide Rio</h1>
+    <p class="sub">Rio de Janeiro → São Luís → Barreirinhas (Lençóis) → Parnaíba → Jericoacoara → Fortaleza &nbsp;|&nbsp; 15 → 26 septembre</p>
+    <div class="kpi" role="list">
+      <div role="listitem"><strong>Groupe</strong> accompagné (coordinateur & guides locaux)</div>
+      <div role="listitem"><strong>Pot commun</strong> : 200–300 € p.p.</div>
+      <div role="listitem"><strong>Régime</strong> : PDJ inclus / Repas libres</div>
+    </div>
+  </section>
+
+  <!-- INFOS PRATIQUES -->
+  <section id="infos" class="grid cols-2" style="margin-top:10px">
+    <div class="card">
+      <h2>Infos pratiques — Sécurité & Téléphonie</h2>
+      <ul>
+        <li>Objets de valeur discrets; rester en groupe; la nuit, taxi/Uber.</li>
+        <li>Argent réparti sur soi (ex. poche/chaussure/portefeuille).</li>
+        <li>Plage : ne rien laisser sans surveillance; téléphone discret.</li>
+        <li>SIM locale via DMC (≈20 € / 7 Go) ou eSIM; Wi-Fi fréquent.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Argent, Pot commun & Valise</h2>
+      <ul>
+        <li>Change via DMC (éviter l’aéroport); budget perso 500–600 € p.p.</li>
+        <li>Le pot commun couvre : activités communes, menus fixes, pourboires, petites charges logistiques. <strong>Hors</strong> repas à la carte & boissons individuelles.</li>
+        <li>Peu de DAB à Jericoacoara; carte très acceptée.</li>
+        <li>À prévoir : anti-moustique, écran solaire, chapeau, manches longues, k-way (bateau), tongs & baskets, cadenas.</li>
+      </ul>
+      <p class="legend">La <strong>part du coordinateur est prise en charge</strong> par la cagnotte.</p>
+    </div>
+  </section>
+
+  <p class="legend">Légende : <span class="chip">Inclus</span> = compris au programme | <span class="chip">Pot commun</span> = payé par la cagnotte | <span class="chip">Non inclus</span> = à régler sur place.</p>
+
+  <!-- ==================== PROGRAMME — 12 jours ==================== -->
+  <section id="programme">
+    <h2>Programme — 12 jours</h2>
+
+    <!-- J1 -->
+    <article class="day">
+      <header><h3>Jour 1 — Bienvenue à Rio</h3><span class="date">15 sept.</span><div class="tags"><span class="chip">Culture & ville</span></div></header>
+      <div class="cols">
+        <div><p>Arrivée libre, check-in et réunion de bienvenue. Première picanha dans un petit resto, ambiance carioca immédiate.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Nuitée + petit-déjeuner</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li><li>Vols internationaux</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4><div class="price-line"><span>Dîner libre (Lapa/Ipanema)</span><span class="price">variable</span></div></div>
+    </article>
+
+    <!-- J2 -->
+    <article class="day">
+      <header><h3>Jour 2 — Rio total : Cathédrale, Selarón, Sambódromo, Cristo, Pain de Sucre</h3><span class="date">16 sept.</span><div class="tags"><span class="chip">Nature & aventure</span><span class="chip">Relax</span></div></header>
+      <div class="cols">
+        <div><p>City-tour guidé : quartiers emblématiques → cathédrale → Selarón → Sambódromo → Christ Rédempteur. Bondinho jusqu’au Pão de Açúcar pour le coucher de soleil, puis soirée au rythme carioca.</p></div>
+        <div class="incl">
+          <h4>Inclus</h4>
+          <ul><li>Visite guidée (billets, transports, guide)</li><li>Arrêts : Cristo Redentor & Pão de Açúcar</li><li>Nuitée + petit-déjeuner</li></ul>
+          <h4>Pot commun</h4><ul><li>Transports/arrêts additionnels si décidés</li></ul>
+          <h4>Non inclus</h4><ul><li>Repas & boissons</li></ul>
+        </div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4>
+        <div class="price-line"><span>Tramway “bonde” Santa Teresa (aller)</span><span class="price">3 €</span></div>
+        <div class="price-line"><span>Vol hélico (Rio2Fly ~35 min)</span><span class="price">152 €</span></div>
+        <div class="price-line"><span>Soirée Lapa (bars/clubs)</span><span class="price">entrées variables</span></div>
+      </div>
+    </article>
+
+    <!-- J3 -->
+    <article class="day">
+      <header><h3>Jour 3 — Copacabana & Ipanema (+ Rocinha / jardins / randos)</h3><span class="date">17 sept.</span><div class="tags"><span class="chip">Culture & ville</span></div></header>
+      <div class="cols">
+        <div><p>Journée libre : farniente à Ipanema/Copacabana ou visites actives. Option forte : favela de Rocinha avec acteurs locaux pour comprendre l’organisation du quartier.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Nuitée + petit-déjeuner</li></ul><h4>Pot commun</h4><ul><li>Droits d’entrée / contributions locales (si commun)</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4>
+        <div class="price-line"><span>Visite guidée de Rocinha</span><span class="price">~R$65–200 p.p.</span></div>
+        <div class="price-line"><span>Jardim Botânico</span><span class="price">12,64 €</span></div>
+        <div class="price-line"><span>Forte de Copacabana (Musée)</span><span class="price">~2 €</span></div>
+        <div class="price-line"><span>Randonnée Morro Dois Irmãos (taxi-moto + favela)</span><span class="price">R$24</span></div>
+        <div class="price-line"><span>Vista Chinesa</span><span class="price">gratuit</span></div>
+        <div class="price-line"><span>Match (Maracanã/Fluminense)</span><span class="price">variable</span></div>
+        <div class="price-line"><span>Baile funk encadré</span><span class="price">~R$300</span></div>
+      </div>
+    </article>
+
+    <!-- J4 -->
+    <article class="day">
+      <header><h3>Jour 4 — Vol pour São Luís, “Jamaïque brésilienne”</h3><span class="date">18 sept.</span><div class="tags"><span class="chip">Culture & ville</span><span class="chip">Nuit</span></div></header>
+      <div class="cols">
+        <div><p>Vol vers São Luís (Maranhão), balade historique aux façades azulejos; soirée reggae.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Vol intérieur Rio → São Luís</li><li>Nuitée + petit-déjeuner</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4><div class="price-line"><span>Clubs/bars reggae</span><span class="price">entrées variables</span></div></div>
+    </article>
+
+    <!-- J5 -->
+    <article class="day">
+      <header><h3>Jour 5 — Barreirinhas & Lençóis Maranhenses (Lagoa Bonita)</h3><span class="date">19 sept.</span><div class="tags"><span class="chip">Nature & aventure</span><span class="chip">Relax</span></div></header>
+      <div class="cols">
+        <div><p>Route 4×4 vers Barreirinhas. Lagunes entre dunes — baignade à Lagoa Bonita, golden hour.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Transfert São Luís → Barreirinhas (véhicule + essence)</li><li>Excursion Lagoa Bonita</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4><div class="price-line"><span>—</span><span class="price">—</span></div></div>
+    </article>
+
+    <!-- J6 -->
+    <article class="day">
+      <header><h3>Jour 6 — Rio Preguiças & petits Lençóis (+ survol hélico)</h3><span class="date">20 sept.</span><div class="tags"><span class="chip">Nature & aventure</span><span class="chip">Relax</span></div></header>
+      <div class="cols">
+        <div><p>Bateau vers l’embouchure du Rio Preguiças, villages de pêcheurs, dunes photogéniques. Option : survol en hélico des Lençóis (vue patchwork).</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Nuitée + petit-déjeuner</li></ul><h4>Pot commun</h4><ul><li>Excursion bateau Rio Preguiças</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li><li>Hélico (option)</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4><div class="price-line"><span>Survol hélico Lençóis (~30 min)</span><span class="price">~R$300–600 p.p.</span></div></div>
+    </article>
+
+    <!-- J7 -->
+    <article class="day">
+      <header><h3>Jour 7 — Vers Parnaíba & Delta</h3><span class="date">21 sept.</span><div class="tags"><span class="chip">Nature & aventure</span></div></header>
+      <div class="cols">
+        <div><p>Tutóia puis bateau dans le delta de Parnaíba : mangroves, guarás, iguanes, caïmans, singes. Porto des Barcas en fin de journée.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Transfert terrestre</li><li>Excursion bateau delta</li><li>Nuitée + petit-déjeuner</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4><div class="price-line"><span>—</span><span class="price">—</span></div></div>
+    </article>
+
+    <!-- J8 -->
+    <article class="day">
+      <header><h3>Jour 8 — Vers Jericoacoara (Tatajuba, Duna do Pôr do Sol)</h3><span class="date">22 sept.</span><div class="tags"><span class="chip">Nature & aventure</span><span class="chip">Nuit</span></div></header>
+      <div class="cols">
+        <div><p>Étapes piste/asphalte jusqu’à Tatajuba (poisson & hamacs), puis Jeri pour le sunset depuis la dune, caipirinha en main.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Transfert Parnaíba → Jericoacoara (véhicule + essence)</li><li>Nuitée + petit-déjeuner</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4><div class="price-line"><span>Caipirinhas & street-food</span><span class="price">selon choix</span></div></div>
+    </article>
+
+    <!-- J9 -->
+    <article class="day">
+      <header><h3>Jour 9 — Jeri : chill, kite, cheval ou buggy</h3><span class="date">23 sept.</span><div class="tags"><span class="chip">Aventure</span><span class="chip">Relax</span><span class="chip">Nuit</span></div></header>
+      <div class="cols">
+        <div><p>Rues de sable pieds nus. Kitesurf, cheval, ou buggy vers Lagoa Azul & Paraíso; sunset à Pedra Furada.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Nuitée + petit-déjeuner</li></ul><h4>Pot commun</h4><ul><li>Droits d’entrée si décidés</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li><li>Activités optionnelles</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4>
+        <div class="price-line"><span>Leçon de kitesurf</span><span class="price">~R$120–190 / h p.p.</span></div>
+        <div class="price-line"><span>Buggy privé (≤4 pers.)</span><span class="price">~R$350–520 / buggy</span></div>
+        <div class="price-line"><span>Entrées lagunes</span><span class="price">~R$20–40 p.p.</span></div>
+        <div class="price-line"><span>Balade à cheval</span><span class="price">~R$50 / h p.p.</span></div>
+      </div>
+    </article>
+
+    <!-- J10 -->
+    <article class="day">
+      <header><h3>Jour 10 — Jericoacoara : cocktails & détente</h3><span class="date">24 sept.</span><div class="tags"><span class="chip">Relax</span><span class="chip">Nuit</span></div></header>
+      <div class="cols">
+        <div><p>Lagunes, hamacs dans l’eau, éventuellement cours de kite, sunset à cheval.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Nuitée + petit-déjeuner</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li><li>Activités optionnelles</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4>
+        <div class="price-line"><span>Leçon de kitesurf</span><span class="price">~R$120–190 / h p.p.</span></div>
+        <div class="price-line"><span>Balade à cheval (sunset)</span><span class="price">~R$50 / h p.p.</span></div>
+      </div>
+    </article>
+
+    <!-- J11 -->
+    <article class="day">
+      <header><h3>Jour 11 — Vers Fortaleza : retour à la “civilisation”</h3><span class="date">25 sept.</span><div class="tags"><span class="chip">Relax</span><span class="chip">Nuit</span></div></header>
+      <div class="cols">
+        <div><p>Transfert à Fortaleza, apéritif final & dîner d’adieu; sortie samba pour conclure.</p></div>
+        <div class="incl"><h4>Inclus</h4><ul><li>Transfert Jericoacoara → Fortaleza (minivan)</li><li>Nuitée</li></ul><h4>Non inclus</h4><ul><li>Repas & boissons</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4><div class="price-line"><span>Bars/salles de samba</span><span class="price">entrées variables</span></div></div>
+    </article>
+
+    <!-- J12 -->
+    <article class="day">
+      <header><h3>Jour 12 — Au revoir le Brésil</h3><span class="date">26 sept.</span><div class="tags"><span class="chip">Départ</span></div></header>
+      <div class="cols">
+        <div><p>Fin des services. Transferts aéroport selon vols.</p></div>
+        <div class="incl"><h4>Non inclus</h4><ul><li>Transfert aéroport (si non prévu par l’hébergement)</li></ul></div>
+      </div>
+      <div class="noninc"><h4>Activités non incluses & prix</h4><div class="price-line"><span>—</span><span class="price">—</span></div></div>
+    </article>
+  </section>
+
+  <!-- ==================== GUIDE RIO — Astuces ==================== -->
+  <section id="guide-rio" class="guide">
+    <h2>Guide Rio — Astuces & bonnes adresses</h2>
+
+    <div class="card">
+      <div class="searchbar" role="search">
+        <input id="q" type="search" placeholder="Rechercher (ex : 'samba', 'Ipanema', 'tramway', 'R$')…" aria-label="Recherche dans le Guide Rio">
+        <span class="count" id="count">—</span>
+        <button class="btn" type="button" id="clear">Effacer</button>
+      </div>
+    </div>
+
+    <details open>
+      <summary>Déplacements & repères</summary>
+      <div class="two">
+        <div class="card">
+          <div class="row head"><div>Transports</div><div>Tarif</div><div>Notes</div></div>
+          <div class="row"><div>Tramway de Santa Teresa (départ “Carioca”, Rua Lélio Gama)</div><div>3 €</div><div>20–25 min · Lun-Ven 8h–17h40 · WE 10h–17h40</div></div>
+          <div class="row"><div>Métro (wagons femmes 6–9h & 17–20h)</div><div>1,25 €</div><div>Généralement sûr</div></div>
+          <div class="row"><div>Moto-taxi Vidigal → Morro Dois Irmãos</div><div>R$24</div><div>Inclut entrée favela</div></div>
+        </div>
+        <div class="card">
+          <div class="row head"><div>Survols / mer</div><div>Tarif</div><div>Notes</div></div>
+          <div class="row"><div>Hélicoptère Rio2Fly (~35 min)</div><div>152 €</div><div>Remise cash possible selon opérateur</div></div>
+          <div class="row"><div>Heli Rio</div><div>variable</div><div>Durée/route selon offre</div></div>
+          <div class="row"><div>Observation de baleines (juin→nov.)</div><div>variable</div><div>Îles Cagarras, Arpoador, etc.</div></div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Incontournables & musées</summary>
+      <div class="card">
+        <div class="row head"><div>Lieu</div><div>Tarif</div><div>Notes</div></div>
+        <div class="row"><div>Christ Rédempteur</div><div>~R$85 (~13 €)</div><div>Réservation en ligne, aller tôt</div></div>
+        <div class="row"><div>Pain de Sucre (Bondinho)</div><div>variable</div><div>Sunset très fréquenté; coupe-file utile</div></div>
+        <div class="row"><div>Escalier Selarón</div><div>gratuit</div><div>Quartier Santa Teresa</div></div>
+        <div class="row"><div>Vista Chinesa</div><div>gratuit</div><div>8h–17h; taxi possible</div></div>
+        <div class="row"><div>Forte de Copacabana (Musée)</div><div>~2 €</div><div>Vue superbe sur la baie</div></div>
+        <div class="row"><div>Museu do Amanhã</div><div>R$40 (~6 €)</div><div>Ouvert tlj sauf mercredi · 10h–18h</div></div>
+        <div class="row"><div>MAR (Rio Art Museum)</div><div>R$20 (~3 €)</div><div>Fermé mercredi</div></div>
+        <div class="row"><div>Musée du Samba</div><div>R$20</div><div>Mar-Sam 10h–17h · Fermé dim/lun/jours fériés</div></div>
+        <div class="row"><div>Mémorial de l’Holocauste</div><div>gratuit</div><div>Jeu-Dim dès 10h (peut fermer pour travaux)</div></div>
+        <div class="row"><div>Casa Firjan</div><div>gratuit</div><div>Mar-Ven 9h–19h · Sam/Dim 8h–19h</div></div>
+        <div class="row"><div>Parque das Ruinas</div><div>gratuit</div><div>Ouvert tlj sauf lundi 9h–18h</div></div>
+        <div class="row"><div>Le Maze</div><div>~2,30 €</div><div>Mer-Dim 12h–17h</div></div>
+        <div class="row"><div>Real Gabinete Português</div><div>gratuit</div><div>Lun-Ven 10h–17h</div></div>
+        <div class="row"><div>Catedral São Sebastião</div><div>gratuit</div><div>Tlj 7h–17h; tenue respectueuse</div></div>
+        <div class="row"><div>Forêt de Tijuca (guidé)</div><div>~18–30 €</div><div>Moto 1h30 ou à pied 3h</div></div>
+        <div class="row"><div>Pedra Bonita</div><div>gratuit</div><div>Randonnée facile; cascade possible</div></div>
+        <div class="row"><div>Maracanã (match/visite)</div><div>variable</div><div>Acheter en ligne; éviter revendeurs</div></div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Plages & points de vue</summary>
+      <div class="two">
+        <div class="card">
+          <div class="row head"><div>Plage</div><div>Tarif</div><div>Notes</div></div>
+          <div class="row"><div>Copacabana</div><div>transat R$10–15</div><div>Populaire; eau froide; attention pickpockets</div></div>
+          <div class="row"><div>Ipanema</div><div>—</div><div>Chic & locale; Posto 8 jeunes / 10 calme</div></div>
+          <div class="row"><div>Leblon</div><div>—</div><div>Familiale et chic</div></div>
+          <div class="row"><div>Praia do Pepê</div><div>—</div><div>Jeunes/sportifs; sandwich “pepê”</div></div>
+          <div class="row"><div>Praia Vermelha</div><div>—</div><div>Calme; peu de touristes</div></div>
+          <div class="row"><div>Praia do Perigoso</div><div>—</div><div>Accès rando; sauvage</div></div>
+          <div class="row"><div>Praia da Joatinga</div><div>—</div><div>Cachée; eau turquoise</div></div>
+          <div class="row"><div>Pontal</div><div>—</div><div>Marée basse; plage calme</div></div>
+          <div class="row"><div>Itacoatiara</div><div>—</div><div>Falaises; hors circuit</div></div>
+        </div>
+        <div class="card">
+          <div class="row head"><div>Spots sunset & samba</div><div>Tarif</div><div>Quand</div></div>
+          <div class="row"><div>Arpoador (sunset)</div><div>gratuit</div><div>Quotidien</div></div>
+          <div class="row"><div>Pedra do Sal (musique/funk)</div><div>gratuit</div><div>Lundi soir</div></div>
+          <div class="row"><div>Lapa (samba, live)</div><div>entrées variables</div><div>Ven/Sam</div></div>
+          <div class="row"><div>Botafogo (quartier animé)</div><div>—</div><div>Jeu→Dim</div></div>
+          <div class="row"><div>Où écouter la Samba</div><div>—</div><div>Bafo da Prainha · Beco do Rato (tlj) · Pedra do Sal (lun/sam/dim) · Samba do Trabalhador (lun 17h) · Roda do André (ven)</div></div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Shopping & marchés</summary>
+      <div class="two">
+        <div class="card">
+          <div class="row head"><div>Centre / marché</div><div>Tarif</div><div>Horaires / notes</div></div>
+          <div class="row"><div>Barra Shopping</div><div>—</div><div>Lun-Sam 9h–22h · Dim 12h–20h · ~700 boutiques</div></div>
+          <div class="row"><div>RioSul Shopping</div><div>—</div><div>Lun-Sam 10h–23h · Dim 12h–13h & 21h–22h</div></div>
+          <div class="row"><div>Botafogo Praia Shopping</div><div>—</div><div>10h–22h (Dim 13h–21h)</div></div>
+          <div class="row"><div>Feira Hippie (Ipanema)</div><div>—</div><div>Dim 7h–19h</div></div>
+          <div class="row"><div>Marché Glória</div><div>—</div><div>Dim 6h–13h · food & vêtements</div></div>
+          <div class="row"><div>Saara District</div><div>—</div><div>Tlj 9h–18h (sam 14h) · fermé dim</div></div>
+          <div class="row"><div>Marché Uruguaiana</div><div>—</div><div>Maillots prix bas</div></div>
+          <div class="row"><div>Feira das Antiguidades</div><div>—</div><div>Sam 10h–18h</div></div>
+          <div class="row"><div>Outlet Premium Rio</div><div>—</div><div>Tlj 9h–21h</div></div>
+        </div>
+        <div class="card">
+          <div class="row head"><div>Produits & repères</div><div>Prix</div><div>Notes</div></div>
+          <div class="row"><div>Havaianas</div><div>4–12 €</div><div>Personnalisables</div></div>
+          <div class="row"><div>Maillot du Brésil</div><div>—</div><div>Feira Hippie / Quintino FC / Uruguaiana / Night Market Copa</div></div>
+          <div class="row"><div>Granado Parfum</div><div>—</div><div>Maison historique</div></div>
+          <div class="row"><div>Lola Cosmetics</div><div>—</div><div>Produits cheveux locaux</div></div>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>Food & cafés</summary>
+      <div class="two">
+        <div class="card">
+          <div class="row head"><div>Restaurants</div><div>Prix</div><div>Horaires / note</div></div>
+          <div class="row"><div>Confeitaria Colombo</div><div>€ raisonnable</div><div>Lun-Ven 10h–19h · Sam 10h–14h · Dim fermé</div></div>
+          <div class="row"><div>Bacio di Latte (Ipanema, kiosque 9)</div><div>—</div><div>10h–22h</div></div>
+          <div class="row"><div>Boteco Belmonte Ipanema</div><div>prix “européen”</div><div>11h–02h · résa Instagram</div></div>
+          <div class="row"><div>Haru Sushi Bar</div><div>prix “européen”</div><div>Tlj 12h–16h & 18h–23h30</div></div>
+          <div class="row"><div>Zazá Bistrô Tropical</div><div>—</div><div>Tlj 12h–00h30 (Lun 18h30–23h30)</div></div>
+          <div class="row"><div>Teva (végétal)</div><div>modéré→élevé</div><div>Mar-Dim (lun fermé)</div></div>
+          <div class="row"><div>Zola (italien)</div><div>pizza ~10 €</div><div>Tlj 8h–14h & 18h–23h</div></div>
+          <div class="row"><div>Joa Quina (brésilien)</div><div>raisonnable</div><div>Tlj</div></div>
+          <div class="row"><div>Brewteco (resto)</div><div>raisonnable</div><div>Tlj 8h30–00h · brunch 8h–11h</div></div>
+          <div class="row"><div>Aprazível (vue)</div><div>~30 €</div><div>Mar-Sam 12h–23h · Dim 12h–17h</div></div>
+          <div class="row"><div>Terra Brasilis</div><div>—</div><div>Tlj 12h–23h</div></div>
+          <div class="row"><div>Basha (libanais, halal)</div><div>raisonnable</div><div>Tlj 10h–23h</div></div>
+          <div class="row"><div>Emporio Bagdad</div><div>raisonnable</div><div>Tlj 11h–22h</div></div>
+          <div class="row"><div>Bonde Boca</div><div>raisonnable</div><div>Tlj 12h–23h (lun 12h–17h)</div></div>
+          <div class="row"><div>Bar da Laje (vue)</div><div>raisonnable</div><div>Ouvert tlj sauf jeudi</div></div>
+          <div class="row"><div>Rotisseria Sírio Libaneza</div><div>raisonnable+</div><div>Tlj 8h–22h (dim fermé)</div></div>
+        </div>
+        <div class="card">
+          <div class="row head"><div>Cafés / brunch / bars</div><div>Prix</div><div>Horaires / note</div></div>
+          <div class="row"><div>So So Café</div><div>€ européen</div><div>Tlj 8h–21h (dim 19h)</div></div>
+          <div class="row"><div>Empório Jardim na Praia</div><div>—</div><div>Tlj 8h–18h30 · meilleur petit-déj</div></div>
+          <div class="row"><div>Bicyclette (boulangerie FR)</div><div>raisonnable</div><div>Tlj 8h–21h (sam/dim 20h)</div></div>
+          <div class="row"><div>Teva Deli (vegan/bio)</div><div>raisonnable</div><div>Tlj 7h–22h</div></div>
+          <div class="row"><div>Nusa (brunch sain)</div><div>raisonnable</div><div>Lun-Ven 8h–18h15 · WE 8h–16h15</div></div>
+          <div class="row"><div>Musa</div><div>prix “européen”</div><div>Tlj sauf lun 8h–20h</div></div>
+          <div class="row"><div>Bondai Praia (kiosques plage)</div><div>—</div><div>Tlj 9h–20h</div></div>
+          <div class="row"><div>Liz Cocktail (bar intimiste)</div><div>prix correct</div><div>18h–01h (dim 17h–00h) · lun fermé</div></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Estimateur rapide -->
+    <details>
+      <summary>Estimer rapidement mon budget à Rio</summary>
+      <div class="card budget" id="budget">
+        <div class="brow head"><div>Activité</div><div>Prix (éditable)</div><div>Inclure</div></div>
+        <div class="brow"><label for="b-roc">Visite Rocinha (p.p.)</label><input id="b-roc" type="number" value="120" step="1"><input type="checkbox" data-ref="b-roc" checked></div>
+        <div class="brow"><label for="b-cristo">Cristo Redentor (p.p.)</label><input id="b-cristo" type="number" value="85" step="1"><input type="checkbox" data-ref="b-cristo"></div>
+        <div class="brow"><label for="b-bondinho">Bondinho Pão de Açúcar (p.p.)</label><input id="b-bondinho" type="number" value="180" step="1"><input type="checkbox" data-ref="b-bondinho"></div>
+        <div class="brow"><label for="b-bonde">Tramway Santa Teresa</label><input id="b-bonde" type="number" value="3" step="1"><input type="checkbox" data-ref="b-bonde"></div>
+        <div class="brow"><label for="b-dois">Dois Irmãos (moto+favela)</label><input id="b-dois" type="number" value="24" step="1"><input type="checkbox" data-ref="b-dois"></div>
+        <div class="brow"><label for="b-amanha">Museu do Amanhã</label><input id="b-amanha" type="number" value="40" step="1"><input type="checkbox" data-ref="b-amanha"></div>
+        <div class="brow"><label for="b-mar">MAR (Musée d’Art)</label><input id="b-mar" type="number" value="20" step="1"><input type="checkbox" data-ref="b-mar"></div>
+        <div class="brow"><label for="b-helio">Hélico Rio2Fly</label><input id="b-helio" type="number" value="152" step="1"><input type="checkbox" data-ref="b-helio"></div>
+        <div class="sum">Total estimé : <span id="total" class="ok">—</span></div>
+        <p class="legend">Indications informatives — à ajuster selon vos choix.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ==================== POT COMMUN — suivi & répartition ==================== -->
+  <section id="pot-commun" class="card" style="margin-top:18px">
+    <h2>POT commun — suivi & répartition</h2>
+
+    <!-- Gestion des participants -->
+    <div class="card">
+      <h3>Participants du voyage (hors coordinateur)</h3>
+      <div class="paxwrap">
+        <div class="paxrow" id="paxList" aria-live="polite"></div>
+        <div class="paxrow">
+          <input id="newPax" type="text" placeholder="Prénom ou pseudo" style="flex:1;min-width:200px">
+          <button class="btn" id="addPax" type="button">+ Ajouter un voyageur</button>
+          <button class="btn" id="clearPax" type="button">Réinitialiser la liste</button>
+        </div>
+        <div class="pinfo">Astuce : ajoute uniquement les <strong>participants payants</strong>. La part du/des coordinateur(s) est couverte par la cagnotte, donc <em>non comptée</em> pour la division.</div>
+      </div>
+    </div>
+
+    <div class="pot-controls">
+      <label>Coordinateurs <input id="coords" type="number" min="0" value="1"></label>
+      <label>Taux change (1 € = <input id="rate" type="number" step="0.01" value="6.0" style="width:90px"> R$)</label>
+      <label>Devise d’affichage
+        <select id="displayCur">
+          <option value="EUR">€</option>
+          <option value="BRL">R$</option>
+        </select>
+      </label>
+      <button class="btn" id="addRow" type="button">+ Ajouter une ligne</button>
+    </div>
+
+    <table class="ptable" id="ptable" aria-describedby="potnote">
+      <thead>
+        <tr>
+          <th>Inclure</th>
+          <th>Jour</th>
+          <th>Intitulé (activité / dépense commune)</th>
+          <th>Qté</th>
+          <th>Prix unitaire</th>
+          <th>Devise</th>
+          <th>Total ligne</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- J2 -->
+        <tr>
+          <td><input type="checkbox" checked></td>
+          <td>J2</td>
+          <td>Pourboires guide local (city-tour Rio)</td>
+          <td><input type="number" value="1" min="1"></td>
+          <td><input type="number" value="" placeholder="montant"></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Billets/transport inclus par le programme</td>
+        </tr>
+        <!-- J3 -->
+        <tr>
+          <td><input type="checkbox" checked></td>
+          <td>J3</td>
+          <td>Droits d’entrée / contributions locales (favela Rocinha) <em>si commun</em></td>
+          <td><input type="number" value="10" min="1"></td>
+          <td><input type="number" value="" placeholder="p.p."></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Sinon chacun règle sur place</td>
+        </tr>
+        <!-- J6 -->
+        <tr>
+          <td><input type="checkbox" checked></td>
+          <td>J6</td>
+          <td>Excursion en bateau — Rio Preguiças</td>
+          <td><input type="number" value="10" min="1"></td>
+          <td><input type="number" value="" placeholder="p.p."></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Prévue au Pot commun</td>
+        </tr>
+        <!-- J7 -->
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>J7</td>
+          <td>Activités éventuelles (delta Parnaíba) — extras</td>
+          <td><input type="number" value="1" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Delta en bateau déjà inclus</td>
+        </tr>
+        <!-- J8 -->
+        <tr>
+          <td><input type="checkbox" checked></td>
+          <td>J8</td>
+          <td>Droits d’entrée & micro-transferts (Tatajuba → Jeri)</td>
+          <td><input type="number" value="10" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Selon postes rencontrés</td>
+        </tr>
+        <!-- J9 -->
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>J9</td>
+          <td>Droits d’entrée lagunes (si commun)</td>
+          <td><input type="number" value="10" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Sinon chacun paye ses options</td>
+        </tr>
+        <!-- J10 -->
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>J10</td>
+          <td>Transferts locaux / entrées diverses (si décidés)</td>
+          <td><input type="number" value="1" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Au besoin seulement</td>
+        </tr>
+        <!-- J11 -->
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>J11</td>
+          <td>Droits d’entrée soirée (samba/bar) — commun</td>
+          <td><input type="number" value="10" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Sinon chacun sa conso</td>
+        </tr>
+        <!-- Généraux -->
+        <tr>
+          <td><input type="checkbox" checked></td>
+          <td>Multi</td>
+          <td>Menus fixes de groupe (x repas)</td>
+          <td><input type="number" value="2" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Hors boissons individuelles</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" checked></td>
+          <td>Multi</td>
+          <td>Pourboires (guides/chauffeurs/serveurs)</td>
+          <td><input type="number" value="1" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Enveloppe globale</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>Multi</td>
+          <td>Eau & snacks communs (van / journées)</td>
+          <td><input type="number" value="5" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Optionnel</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox"></td>
+          <td>Imprévus</td>
+          <td>Fonds de sécurité / divers</td>
+          <td><input type="number" value="1" min="1"></td>
+          <td><input type="number" value=""></td>
+          <td><select><option>R$</option><option>€</option></select></td>
+          <td class="lineTotal">—</td>
+          <td>Au besoin</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ptot">
+      <div><strong>Total R$ :</strong> <span id="totBRL">R$ 0.00</span></div>
+      <div><strong>Total € :</strong> <span id="totEUR">€ 0.00</span></div>
+      <div><strong>Total affiché :</strong> <span id="totDisplay">€ 0.00</span></div>
+      <div><strong>Participants (hors coord.) :</strong> <span id="paxCount">0</span></div>
+      <div><strong>Part par personne :</strong> <span id="pp">€ 0.00</span></div>
+      <div class="pinfo">La cagnotte couvre la part du/des <strong>coordinateur(s)</strong> : division par les <em>participants uniquement</em>.</div>
+    </div>
+
+    <p id="potnote" class="pinfo">Conseil : saisis des montants <strong>par personne</strong> quand c’est pertinent (droits d’entrée), ou <strong>par groupe</strong> (pourboires globaux, micro-transferts). Utilise la colonne “Qté” pour répéter une dépense.</p>
+  </section>
+</div>
+
+<button class="top" aria-label="Retour haut" title="Haut" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // ==== Ouvrir / fermer tous les <details> du Guide Rio ====
+  const expandAll=document.getElementById('expandAll');
+  const collapseAll=document.getElementById('collapseAll');
+  const allDetails=()=>Array.from(document.querySelectorAll('#guide-rio details'));
+  if(expandAll) expandAll.onclick=()=>allDetails().forEach(d=>d.open=true);
+  if(collapseAll) collapseAll.onclick=()=>allDetails().forEach(d=>d.open=false);
+
+  // ==== Recherche Guide Rio ====
+  const q=document.getElementById('q'); const count=document.getElementById('count');
+  const clear=document.getElementById('clear');
+  const searchable=()=>Array.from(document.querySelectorAll('#guide-rio details, #guide-rio .card .row'));
+  function search(){
+    if(!q) return;
+    const term=q.value.trim().toLowerCase();
+    let visible=0;
+    searchable().forEach(el=>{
+      const txt=el.textContent.toLowerCase();
+      const match=term==='' || txt.includes(term);
+      el.style.display=match?'':'none';
+      if(match) visible++;
+      if(match && el.closest('details')) el.closest('details').style.display='';
+    });
+    document.querySelectorAll('#guide-rio .head').forEach(h=>h.parentElement.style.display='');
+    count.textContent = term==='' ? '—' : `${visible} éléments`;
+  }
+  if(q){ q.addEventListener('input',search); }
+  if(clear){ clear.addEventListener('click',()=>{q.value='';search();q.focus();}); }
+  search();
+
+  // ==== Estimateur budget rapide ====
+  const budget=document.getElementById('budget');
+  function sumBudget(){
+    if(!budget) return;
+    let total=0;
+    budget.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
+      if(cb.checked){
+        const id=cb.dataset.ref;
+        const val=parseFloat(document.getElementById(id).value||0);
+        total+=isNaN(val)?0:val;
+      }
+    });
+    document.getElementById('total').textContent = (total>0? total.toFixed(0): '—');
+  }
+  if(budget){ budget.addEventListener('input',sumBudget); sumBudget(); }
+
+  // ==== POT COMMUN : Participants ====
+  const paxListEl=document.getElementById('paxList');
+  const newPax=document.getElementById('newPax');
+  const addPax=document.getElementById('addPax');
+  const clearPax=document.getElementById('clearPax');
+  const paxCountEl=document.getElementById('paxCount');
+  let paxData=[]; // tableau des participants (hors coord.)
+
+  function renderPax(){
+    paxListEl.innerHTML='';
+    paxData.forEach((name,idx)=>{
+      const pill=document.createElement('span');
+      pill.className='pill';
+      pill.innerHTML=`<span>${name}</span><button type="button" aria-label="Retirer ${name}" data-i="${idx}">×</button>`;
+      paxListEl.appendChild(pill);
+    });
+    paxCountEl.textContent=paxData.length;
+    compute(); // recalcule la part par personne
+  }
+  function addPaxFn(){
+    const name=(newPax.value||'').trim();
+    if(!name) return;
+    paxData.push(name);
+    newPax.value='';
+    renderPax();
+  }
+  function removePax(index){
+    paxData.splice(index,1);
+    renderPax();
+  }
+  if(addPax) addPax.addEventListener('click',addPaxFn);
+  if(newPax) newPax.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); addPaxFn(); }});
+  if(clearPax) clearPax.addEventListener('click',()=>{ paxData=[]; renderPax(); });
+  paxListEl.addEventListener('click',e=>{
+    if(e.target.tagName==='BUTTON'){
+      const i=parseInt(e.target.dataset.i,10);
+      if(!isNaN(i)) removePax(i);
+    }
+  });
+  // Optionnel : pré-remplir quelques noms pour test
+  // paxData=['Marwa','Amine','Nadia','Yacine','Lina','Sofiane','Sarah','Omar','Maya','Karim']; renderPax();
+
+  // ==== POT COMMUN : Calculs ====
+  const table=document.getElementById('ptable');
+  const totBRL=document.getElementById('totBRL');
+  const totEUR=document.getElementById('totEUR');
+  const totDisplay=document.getElementById('totDisplay');
+  const perPerson=document.getElementById('pp');
+  const coords=document.getElementById('coords');
+  const rate=document.getElementById('rate');
+  const displayCur=document.getElementById('displayCur');
+  const addRow=document.getElementById('addRow');
+
+  function rowTotal(tr){
+    const inc=tr.querySelector('input[type="checkbox"]').checked;
+    const lt=tr.querySelector('.lineTotal');
+    if(!inc) { lt.textContent='—'; return 0; }
+    const qty=parseFloat(tr.querySelector('td:nth-child(4) input').value)||0;
+    const unit=parseFloat(tr.querySelector('td:nth-child(5) input').value)||0;
+    const cur=tr.querySelector('td:nth-child(6) select').value;
+    const total=qty*unit;
+    const rateVal=parseFloat(rate.value)||1;
+    let shown=total;
+    if(displayCur.value==='EUR' && cur==='R$') shown=(total/rateVal);
+    if(displayCur.value==='BRL' && cur==='€') shown=(total*rateVal);
+    lt.textContent=(displayCur.value==='EUR'?'€ ':'R$ ')+ (shown?shown.toFixed(2):'0.00');
+    return {total,cur};
+  }
+
+  function compute(){
+    let brl=0, eur=0;
+    const rows=[...table.tBodies[0].rows];
+    rows.forEach(tr=>{
+      const res=rowTotal(tr);
+      if(!res || res===0) return;
+      if(res.cur==='R$') brl+=res.total; else eur+=res.total;
+    });
+    const rateVal=parseFloat(rate.value)||1;
+    const disp=displayCur.value==='EUR' ? (eur + brl/rateVal) : (eur*rateVal + brl);
+    totBRL.textContent = 'R$ ' + brl.toFixed(2);
+    totEUR.textContent = '€ ' + eur.toFixed(2);
+    totDisplay.textContent = (displayCur.value==='EUR'?'€ ':'R$ ') + disp.toFixed(2);
+
+    const participants=paxData.length; // division par les participants uniquement (hors coord.)
+    perPerson.textContent = (participants>0 ? (disp/participants).toFixed(2) : '0.00') + ' ' + (displayCur.value==='EUR'?'€':'R$');
+  }
+
+  if(table){ table.addEventListener('input',compute); }
+  [coords,rate,displayCur].forEach(el=>el.addEventListener('input',compute));
+  if(addRow){
+    addRow.addEventListener('click',()=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML=`
+        <td><input type="checkbox" checked></td>
+        <td><input type="text" value="—" style="width:60px"></td>
+        <td><input type="text" placeholder="Nouvelle dépense commune"></td>
+        <td><input type="number" value="1" min="1"></td>
+        <td><input type="number" value=""></td>
+        <td><select><option>R$</option><option>€</option></select></td>
+        <td class="lineTotal">—</td>
+        <td><input type="text" placeholder="Note"></td>`;
+      table.tBodies[0].appendChild(tr);
+      compute();
+    });
+  }
+  // initial render
+  renderPax();
+  compute();
+</script>
+</body>
+</html>
